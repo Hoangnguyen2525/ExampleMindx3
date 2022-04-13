@@ -25,3 +25,22 @@ function adjacentElementsProduct(arr) {
           }
             var mindX2 =  alternatingSums([60, 40, 55, 75, 64])
             console.log(mindx2)
+  //bài 3//
+  var container = document.getElementById('container');
+  var form = document.getElementById('input').value;
+  var result = document.getElementById('result');
+  var render  =document.querySelector("#form").addEventListener('submit',this.handleSubmit )
+  function handleSubmit(e) {
+    e.preventDefault();
+    let value =input.value;
+    fetch(`https://api.shrtco.de/v2/shorten?url=${value}`)
+      .then((res) => res.json())
+      .then((data) => {
+        input.value = '';
+        if (!value) {
+          result.innerText = 'hãy nhập link ';
+        } else {
+          result.innerText = `kết quả là: ${data.result.short_link}`;
+        }
+      });
+  }

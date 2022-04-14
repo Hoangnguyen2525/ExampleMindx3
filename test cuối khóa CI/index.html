@@ -22,5 +22,24 @@
         </div>
     </div>
     <script src="./index.js"></script>
+    <script>
+        let container = document.getElementById('container');
+        let form = document.getElementById('input').value;
+        let result = document.getElementById('result');
+        let output =document.getElementById('form').addEventListener('submit',this.handleSubmit )
+        function handleSubmit(e) {
+	     e.preventDefault();
+	    let value = e.target.input.value;
+	     fetch(`https://api.shrtco.de/v2/shorten?url=${value}`)
+		.then((res) => res.json())
+		.then((data) => {
+			e.target.input.value = '';
+			if (!value) {
+				result.innerText = 'hãy nhập link';
+			} else {
+				result.innerText = `kết quả là: ${data.result.short_link}`;
+			}
+		});
+}
 </body>
 </html>

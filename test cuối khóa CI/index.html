@@ -5,41 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="">
+    <div class="container">
         <h1 class="title">Link shortened</h1>
-         <div class="input">
+        <div class="input">
             <form  id="form">
-               <label for="input"> Enter a link:</label>
-               <input type="text" id="input"  />
-               <button  class="btn">Enter</button>
-               <div></div>
-               <label>Short domain : Shrtco.de </label>
+                <label for="input"> Enter a link:</label>
+                <input type="text" id="input"/>
+                <button  class="btn">Submit!</button>
+                <div></div>
+                    <label>Short domain : shrtco.de </label>
             </form>
-          <div id="result"></div>
+            <div id="result"></div>
         </div>
     </div>
-    <script src="./index.js"></script>
+    <script src="index.js"></script>
     <script>
         let container = document.getElementById('container');
         let form = document.getElementById('input').value;
         let result = document.getElementById('result');
-        let output =document.getElementById('form').addEventListener('submit',this.handleSubmit )
+        let render  =document.querySelector("#form").addEventListener('submit',this.handleSubmit )
         function handleSubmit(e) {
-	     e.preventDefault();
-	    let value = e.target.input.value;
-	     fetch(`https://api.shrtco.de/v2/shorten?url=${value}`)
-		.then((res) => res.json())
-		.then((data) => {
-			e.target.input.value = '';
-			if (!value) {
-				result.innerText = 'hãy nhập link';
-			} else {
-				result.innerText = `kết quả là: ${data.result.short_link}`;
-			}
-		});
-}
+          e.preventDefault();
+          let value =input.value;
+          fetch(`https://api.shrtco.de/v2/shorten?url=${value}`)
+            .then((res) => res.json())
+            .then((data) => {
+              input.value = '';
+              if (!value) {
+                result.innerText = 'hãy nhập link ';
+              } else {
+                result.innerText = `kết quả là: ${data.result.short_link}`;
+              }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -5,7 +5,7 @@ function adjacentElementsProduct(arr) {
   }
   
   
-  console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3]));
+  console.log(adjacentElementsProduct([2, 3, -1, -4, 6, 9]));
 
   // bài 2 //
   function alternatingSums(inputArray) {
